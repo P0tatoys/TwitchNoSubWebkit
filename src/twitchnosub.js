@@ -5,7 +5,8 @@ function injectScript(src) {
     (document.head || document.documentElement).append(s);
 }
 
-const extensionType = window.chrome !== undefined ? "chrome" : "firefox";
+const isSafari = navigator.vendor === 'Apple Computer, Inc.';
+const extensionType = isSafari ? "safari" : (window.chrome !== undefined ? "chrome" : "firefox");
 
 console.log("[TNS] Found extension type : " + extensionType);
 
